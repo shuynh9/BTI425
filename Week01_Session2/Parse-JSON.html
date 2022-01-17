@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <!-- Prepared By : Shahdad -->
+    <title>BTI425 - Week 1</title>
+    <script>
+      function openJSON() {
+        xmlhttp = new XMLHttpRequest();
+        //alert("step 1");
+        xmlhttp.onreadystatechange = function () {
+          //alert("step 2: " + this.readyState);
+          if (this.readyState == 4 && this.status == 200) {
+            //alert("step 3");
+            myFunction(this);
+          }
+        };
+        xmlhttp.open("GET", "BTI425-json_data.json", true);
+        //alert("step 4");
+        xmlhttp.send();
+        //alert("step 5");
+      }
+      function myFunction(Data) {
+        //alert("step 7");
+        var myObj = JSON.parse(Data.responseText);
+
+        // Activity 2
+        document.getElementById("demo").innerHTML =
+          myObj.name + ", " + myObj.age + "</br>";
+
+        for (let i = 0; i < myObj.pets.length; i++) {
+          document.getElementById("demo").innerHTML +=
+            myObj.pets[i].name + "</br>";
+        }
+      }
+    </script>
+  </head>
+
+  <body onload="openJSON()">
+    <p id="demo"></p>
+  </body>
+</html>

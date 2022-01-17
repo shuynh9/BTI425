@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Prepared by Shahdad -->
+    <title>BTI425-Week1</title>
+  </head>
+
+  <body>
+    <p id="demo"></p>
+    <script>
+      //Create the XHR object
+      var xhttp = new XMLHttpRequest();
+      //Open the file - synchronous call
+      xhttp.open("GET", "jsonData.json", false);
+      //Send the request
+      xhttp.send();
+      // Reads entire XML content and puts into xmlDoc
+      jsonData = JSON.parse(xhttp.responseText);
+      console.log(jsonData);
+
+      // Activity 1
+      for (let i = 0; i < jsonData.length; i++) {
+        console.log(jsonData[i].phoneNo);
+      }
+    </script>
+  </body>
+</html>

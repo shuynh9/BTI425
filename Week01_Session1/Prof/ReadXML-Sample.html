@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Prepared by Shahdad -->
+<title> BTI425-Week1</title>
+</head>
+
+<body>
+<p id="demo"></p>
+<script>
+//Create the XHR object
+var xhttp = new XMLHttpRequest();
+//Open the file
+xhttp.open("GET", "books.xml", false);
+//Send the request
+xhttp.send();
+// Read data
+xmlDoc = xhttp.responseXML;
+//Display data 
+items = xmlDoc.getElementsByTagName("title");  
+console.log(items);
+</script>
+
+</body>
+</html>

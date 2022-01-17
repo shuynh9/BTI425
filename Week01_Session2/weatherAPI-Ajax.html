@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<!-- prepared by: Shahdad -->
+<head> <title> BTI425 </title>
+<body>
+
+<h1>Ajax --> JSON data</h1>
+
+<button type="button" onclick="loadDoc()">Parse JSON data</button>
+<br><br>
+<p id="demo"></p>
+
+<script>
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+   
+    if (this.readyState == 4 && this.status == 200) {
+      myFunction(this); 
+    }
+    // else {
+    //   console.log("Not Ready")
+    // }
+  };
+  // units=metric to convert from kelvin to celsius
+  xhttp.open("GET", "http://api.openweathermap.org/data/2.5/weather?q=Toronto&units=metric&appid=e6e022e24e3e8221a92ac179744d9b31", true);
+  xhttp.send();
+}
+function myFunction(json) {
+  var jsonDoc = json.responseText;
+  var myObj = JSON.parse(jsonDoc);
+  console.log(myObj);
+  console.log(myObj.main.temp);
+
+  document.getElementById("demo").innerHTML = myObj.main.temp;
+}
+</script>
+
+</body>
+</html>

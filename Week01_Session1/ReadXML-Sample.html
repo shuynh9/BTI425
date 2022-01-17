@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Prepared by Shahdad -->
+    <title>BTI425-Week1</title>
+  </head>
+
+  <body>
+    <p id="demo"></p>
+    <script>
+      //Create the XHR object
+      var xhttp = new XMLHttpRequest();
+      //Open the file
+      xhttp.open("GET", "books.xml", false);
+      //Send the request
+      xhttp.send();
+      // Reads entire XML content and puts into xmlDoc
+      xmlDoc = xhttp.responseXML;
+      console.log(xmlDoc);
+
+      //Display data
+      // Activity 1
+      items = xmlDoc.getElementsByTagName("title")[0].innerHTML; // to show first book
+      console.log(items);
+      var elem = (document.getElementById("demo").innerHTML = items); // to append title of book with demo paragraph
+
+      // Activity 2
+      for (var i = 0; i < 4; i++) {
+        items2 = xmlDoc
+          .getElementsByTagName("book")
+          [i].getAttribute("category");
+        console.log("Categories in XML: " + (i + 1) + ": " + items2);
+      }
+    </script>
+  </body>
+</html>
