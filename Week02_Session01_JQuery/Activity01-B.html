@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <!-- prepared by: Shahdad -->
+    <title>BTI425</title>
+    <style>
+      #box1 {
+        width: 300px;
+        height: 200px;
+        background-color: orange;
+      }
+    </style>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      $(document).ready(function () {
+        $("p:eq(1)").css({
+          "background-color": "red",
+          width: "300px",
+          height: "200px",
+        }); //.hide(3000); // hides paragraph 2 after 3 seconds
+      });
+    </script>
+  </head>
+
+  <body>
+    <h1>BTI425 - jQuery</h1>
+    <p>This is Paragraph 1</p>
+    <ul>
+      <li>List 1</li>
+      <li>List 2</li>
+      <li>
+        List 3
+        <ul>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+        </ul>
+      </li>
+    </ul>
+    <p>This is Paragraph 2</p>
+    <div id="box1">This is Box 1</div>
+  </body>
+</html>

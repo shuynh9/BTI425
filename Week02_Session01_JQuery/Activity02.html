@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <!-- prepared by: Shahdad -->
+    <title>BTI425</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        // Handle onclick event
+        $("button").on("click", function () {
+          // Activity 2 - Part 1
+          $.getJSON("jq-activity2-data.json", function (data) {
+            //console.log(data);
+            var name = data.p1.name;
+            $("#id").html(name);
+          });
+
+          // Activity 2 - Part 2
+          $.getJSON("jq-activity2-data.json", function (data) {
+            console.log(data);
+            $.each(data, function (key, value) {
+              // key is p1,p2,p3
+              // value is name and colour
+              // console.log(key);
+              $.each(this, function (k, v) {
+                // k is name and colour
+                // v is the details of name and colour
+                $("#a2").append(k, ": ", v, "</br>");
+              });
+            });
+
+            /* Research Question: 
+              They are two different methods
+              $.each() is used to iterate over jQuery objects
+              example: $.each(array,function(index,value) {
+                console.log(index, ": ", value);
+              });
+
+              whereas $(selector).each() is used to iterate over JavaScript arrays and objects
+              example: $("#id").children().each(function(index,element){
+                console.log(index, ": ", element);
+              })
+            
+            */
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h2>BTI425 Activity 2</h2>
+    <p id="id"></p>
+    <p id="a2"></p>
+    <button id="btn">Click Me</button>
+  </body>
+</html>
